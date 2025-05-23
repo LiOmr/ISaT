@@ -1,0 +1,23 @@
+include ../../shared/components/CustomInput/CustomInput.pug
+include ../../shared/components/Header/Header.pug
+include ../../shared/components/TextButton/TextButton.pug
+include ../../shared/components/FooterText/FooterText.pug
+include ../../shared/components/GenderSelection/GenderSelection.pug
+include ../../shared/components/Birth_date/birth_date.pug
+include ../../shared/components/NameInput/nameInput.pug
+
+block registration
+  +header('Добро пожаловать!')
+
+  +customInput('login', 'registration')
+  +customInput('password', 'registration')
+
+  +name('', '')
+
+  +genderSelection('male')
+
+  +birth_date('2000-01-01')
+
+  +textButton('Зарегистрироваться', 'signup-button')
+
+  +footerText('registration')

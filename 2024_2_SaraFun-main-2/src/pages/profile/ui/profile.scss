@@ -1,0 +1,280 @@
+.profile {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .profile-card {
+        padding: 30px;
+        width: 70%;
+        min-width: 400px;
+        margin-top: 20px;
+        background: var(--white1);
+        border-radius: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+
+        .settings-button {
+            background-color: var(--secondary); 
+            color: white; 
+        
+            &:hover {
+                background-color: var(--success); 
+            }
+            
+        }
+
+        .info {
+            display: flex;
+            gap: 50px;
+            width: 100%;
+            &-avatar {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+                &__image {
+                    width: 250px;
+                    height: 250px;
+                    object-fit: cover;
+                }
+            }
+
+            &-avatar__wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 220px;
+                height: 220px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+                outline: 7px solid var(--primary);
+            }
+            
+        }
+
+
+        h1 {
+            align-self: flex-start;
+            padding-bottom: 20px;
+        }
+        h3 {
+            align-self: flex-start;
+            padding-top: 40px;
+
+            padding-bottom: 4px;
+
+        }
+
+        .image-section-profile {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px;
+            padding-bottom: 20px;
+            padding-top: 15px;
+
+            .image-container {
+                display: flex;
+                min-width: 200px;
+                border-radius: 20px;
+                overflow: hidden;
+
+                border: 7px solid var(--primary);
+                flex-direction: column; 
+                align-items: center; 
+                position: relative;
+
+
+                img {
+                    width: 200px;
+                    height: 200px; 
+                    border-radius: 12px;
+                    object-fit: contain; 
+
+                }
+
+                .delete-button {
+                    padding: 4px;
+                    background-color: #d30e0e;
+                    color: white;
+                    border: none;
+                    width: 26px; 
+                    height: 26px;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    border-radius: 50%;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #c33f3f;
+                    }
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                        stroke: rgb(255, 255, 255);
+
+                    }
+                }
+            }
+        }
+        .upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: 4px dashed var(--secondary);
+            margin-top: 7px;
+            margin-left: 7px;
+            border-radius: 20px;
+            width: 200px;
+            height: 200px;
+
+        }
+        .upload-button {
+            margin-top: 10px; 
+            display: fix;
+            padding: 10px 20px;
+            background-color: var(--secondary);
+            color: white;
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--success);
+            }
+        }
+
+
+        .info-section {
+            text-align: left; 
+            width: 100%;
+
+            p {
+                margin: 10px 0;
+                padding-left: 20px;
+                position: relative;
+                
+                &:before {
+                    content: ""; 
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    width: 5px;
+                    height: 5px;
+                    background-color: var(--secondary);
+                    border-radius: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+
+.field {
+    gap: 10px;
+    display: grid;
+    width: 100%; 
+
+
+    input,
+    select,
+    textarea {
+        margin-left: 0; 
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%; 
+        resize: none; 
+        padding: 5px;
+    }
+    
+    textarea {
+        min-height: 50px; 
+        max-height: 200px; 
+        overflow-y: hidden
+    }
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+  
+    button {
+        padding: 10px 20px; 
+        width: 300px;
+        height: 40px;
+        border: none; 
+        border-radius: 8px;
+        cursor: pointer; 
+        font-size: 16px; 
+        margin-bottom: 5px;
+
+        &.new-password {
+            background-color: var(--secondary); 
+            color: white;
+            &:hover {
+              background-color: var(--success); 
+            }
+        }
+      
+        &.settings-button {
+          background-color: rgb(204, 204, 204); 
+          color: white; 
+          transition: background-color 0.3s; 
+      
+          &:hover {
+            background-color: #ff9696; 
+          }
+        }
+      
+        &.save-settings {
+          background-color: var(--secondary); 
+          color: white;
+          &:hover {
+            background-color: var(--success); 
+          }
+        }
+
+        &.cancel-settings {
+            background-color: rgb(180, 179, 179); 
+            color: rgb(89, 88, 88);
+
+            &:hover {
+                background-color: var(--red1); 
+                color: white;
+            }
+        }
+      }
+}
+
+@media (max-width: 750px) {
+    .profile {
+        .profile-card {
+            padding: 20px;
+            width: 90%;
+            min-width: 300px;
+            border-radius: 20px;
+
+            h3 {
+                padding-top: 20px;
+            }
+
+            .info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+node_modules
+src/templates
+server/.env
+dist
+.DS_Store
+.env

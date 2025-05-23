@@ -1,0 +1,84 @@
+include ../../../shared/components/Icons/trash.pug
+include ../../../shared/components/Birth_date/birth_date.pug
+include ../../../shared/components/GenderSelection/GenderSelection.pug
+include ../../../shared/components/NameInput/nameInput.pug
+include ../../../shared/components/Target/target.pug
+include ../../../shared/components/PassChange/passChange.pug
+include ../../../shared/components/About/about.pug
+
+mixin getRublesWordForm(amount)
+    - const lastDigit = amount % 10;
+    - const lastTwoDigits = amount % 100;
+    - let wordForm = 'рублей';
+    - if (lastTwoDigits < 11 || lastTwoDigits > 19) {
+        - if (lastDigit === 1) {
+            - wordForm = 'рубль';
+        - } else if (lastDigit >= 2 && lastDigit <= 4) {
+            - wordForm = 'рубля';
+        - }
+    - }
+    = ` ${amount} ${wordForm}`
+
+div.profile
+  div.profile-card
+    if isEditing
+      h1 Редактирование профиля
+      .settings-form
+        +name(first_name)
+        +birth_date(birth_date)
+        +genderSelection(gender)
+        +target(target)
+        +about(about)
+
+      +password-change
+
+      div 
+        h2 Фотографии
+        .image-section-profile
+          if imagesURLs && imagesURLs.length > 0
+            each image, index in imagesURLs
+              .image-container(
+                draggable="true"
+                data-index=index
+              )
+                img(src=image, alt="Фотография в профиле")
+                .delete-button
+                  +trash
+          div.upload
+            button.upload-button Добавить фото +
+      div.button-wrapper
+        button.save-settings Сохранить
+        button.cancel-settings Вернуться в профиль
+    else 
+      h1 Профиль
+      div.info
+        div.info-avatar
+          div.info-avatar__wrapper
+            if !imagesURLs || imagesURLs.length === 0 
+              img(src="./img/user.svg").info-avatar__image
+            else 
+              img(src=imagesURLs[0]).info-avatar__image
+          | #{username}
+        .info-section
+          p Имя: #{first_name}
+          p Пол: #{gender === 'male' ? 'Мужской' : 'Женский'}
+          p Дата рождения: #{birth_date}
+          p Цель: #{target}
+          p О себе: #{about}
+      div
+        h3 Баланс
+        p Текущий баланс:
+          +getRublesWordForm(moneyBalance)
+        p Осталось бесплатных реакций на сегодня: #{dailyLikes}
+        p Осталось купленных реакций: #{purchasedLikes}
+      div
+        h3 Фотографии
+        .image-section-profile
+          if imagesURLs && imagesURLs.length > 0
+            each image in imagesURLs
+              .image-container
+                img(src=image, alt="Фотография в профиле")
+          else
+            p Пока нет фотографий
+      div.button-wrapper
+        button.settings-button Настройки

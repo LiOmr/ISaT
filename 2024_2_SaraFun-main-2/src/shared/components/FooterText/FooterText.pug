@@ -1,0 +1,9 @@
+mixin footerText(type)
+    if type=='login'
+        .footer
+            span.footer__text У вас еще нет аккаунта?&nbsp;
+            a(class='footer__link' href="/signup" id="link" class=".link") Зарегистрируйтесь
+    else if type=='registration'
+        .footer
+            span.footer__text У вас уже есть аккаунт?&nbsp;
+            a(class='footer__link' href="/login" id="link" class=".link") Войдите в аккаунт
