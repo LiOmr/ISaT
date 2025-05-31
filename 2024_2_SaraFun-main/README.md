@@ -1,5 +1,5 @@
-# 2024_2_-SaraFun
-Backend репозиторий команды SaraFun
+# 2025_-SaraFun
+
 
 ▎Spark It
 
